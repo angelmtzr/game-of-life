@@ -123,6 +123,8 @@ PATTERNS = {
 def count_patterns(grid):
     counts = {}
     width, height = grid.shape
+    width = width - 2
+    height = height - 2
     for pattern in PATTERNS:
         count = 0
         for p in PATTERNS.get(pattern):
@@ -202,10 +204,10 @@ def update_grid(grid):
 
 
 def main():
-    width, height, generations, live_cells = read_input_file("3.in")
+    width, height, generations, live_cells = read_input_file("0.in")
 
-    # grid = np.zeros((height + 2, width + 2), dtype=int)
-    grid = np.zeros((height, width), dtype=int)
+    grid = np.zeros((height + 2, width + 2), dtype=int)
+    # grid = np.zeros((height, width), dtype=int)
 
     for cell in live_cells:
         grid[cell[1], cell[0]] = 1
